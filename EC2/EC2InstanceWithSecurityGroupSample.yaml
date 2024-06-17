@@ -79,15 +79,14 @@ Resources:
   EC2Instance:
     Type: AWS::EC2::Instance
     Properties:
-      InstanceType: !Ref InstanceType
+      InstanceType: !Ref t2.micro
       SubnetId: !Select
         - 0
-        - !Ref Subnets
+        - !Ref G-sub-1
       SecurityGroups:
-        - !Ref InstanceSecurityGroup
-      KeyName: !Ref KeyName
-      ImageId: !Ref LatestAmiId
-
+        - !Ref Green-SGW
+      KeyName: !Ref ramu
+      ImageId: !Ref ami-0eb01a520e67f7f20
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Metadata:
